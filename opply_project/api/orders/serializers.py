@@ -1,7 +1,6 @@
 from rest_framework import serializers
 
 from api.orders.models import Order, OrderItem, OrderStatusEnum
-from api.catalog.services import InventoryManagementService
 
 # Order Item Serializer
 class OrderItemSerializer(serializers.HyperlinkedModelSerializer):
@@ -19,25 +18,6 @@ class OrderSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Order
         fields = ['id', 'customer', 'order_items', 'total', 'status', 'url', 'public_id']
-
-    # Validate
-        # Order item quantity should be greater than 0
-        # Order total should be greater than 0
-        # Order status should be 'new' or 'completed'
-    def validate(self, attrs):
-        if attrs['total'] <= 0:
-            raise serializers.ValidationError("Total should be greater than 0")
-        for order_item in attrs['order_items']:
-            if order_item['quantity'] <= 0:
-                raise serializers.ValidationError("Order item quantity should be greater than 0")
-        
-        if attrs.get('status') == '' or attrs.get('status') == None:
-            attrs['status'] = OrderStatusEnum.NEW
-
-        if attrs['status'] not in [OrderStatusEnum.NEW, OrderStatusEnum.COMPLETED]:
-            raise serializers.ValidationError("Status should be 'new' or 'completed'")    
-        
-        return attrs
          
     def update(self, instance, validated_data):
         order_items_data = validated_data.pop('order_items')
@@ -57,13 +37,6 @@ class OrderSerializer(serializers.HyperlinkedModelSerializer):
         return instance
 
     def create(self, validated_data):
-        if validated_data['status'] == OrderStatusEnum.NEW:
-            for order_item in validated_data['order_items']:
-                InventoryManagementService().update_inventory(order_item['product'], order_item['quantity'])
-            
-            # If all items are available, set the order status to 'completed'
-            validated_data['status'] = OrderStatusEnum.COMPLETED
-
         order_items_data = validated_data.pop('order_items')
         order = Order.objects.create(**validated_data)
         for order_item in order_items_data:

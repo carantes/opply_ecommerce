@@ -8,5 +8,5 @@ def api_root(request, format=None):
     return Response({
         'identity': reverse('identity_root', request=request, format=format),
         'catalog': reverse('catalog_root', request=request, format=format),
-        'orders': 'TODO: Add the orders API here.'
+        'orders': reverse('orders_root', request=request, format=format),
     })

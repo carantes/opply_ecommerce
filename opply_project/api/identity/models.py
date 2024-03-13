@@ -7,3 +7,6 @@ class Customer(User):
 
     def __str__(self):
         return self.username + ' (' + str(self.public_id) + ')'
+    
+    def get_customer_by_public_id(public_id):
+        return Customer.objects.get(public_id=public_id)

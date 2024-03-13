@@ -3,7 +3,6 @@ from api.common.models import BaseModel, UUIDBaseModel
 
 class OrderStatusEnum(models.TextChoices):
     NEW = 'new'
-    PROCESSING = 'processing'
     COMPLETED = 'completed'
 
 # Order Model
@@ -11,7 +10,7 @@ class OrderStatusEnum(models.TextChoices):
 # Loosely coupled with the identity service 
 class Order(UUIDBaseModel):
     customer = models.UUIDField()
-    total = models.DecimalField(max_digits=10, decimal_places=2)
+    total = models.DecimalField(max_digits=10, decimal_places=2, default=0.00)
     status = models.CharField(max_length=50, default='new', choices=OrderStatusEnum.choices)
     
     def __str__(self):
@@ -23,7 +22,7 @@ class Order(UUIDBaseModel):
 class OrderItem(BaseModel):
     order = models.ForeignKey(Order, on_delete=models.CASCADE, related_name='order_items')
     product = models.UUIDField()
-    quantity = models.IntegerField()
+    quantity = models.IntegerField(default=1, blank=False, null=False)
     price = models.DecimalField(max_digits=10, decimal_places=2)
     
     def __str__(self):

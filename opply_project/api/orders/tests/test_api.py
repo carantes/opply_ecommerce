@@ -65,7 +65,7 @@ class OrderTests(APITestSetup):
         data = {'customer': '9feeac87-9058-4c97-a347-ee0b356ee8a0', 'total': 3000, 'order_items': [{'product': '04d5d8be-470b-45e8-b3fe-88b1c412535a', 'quantity': 3, 'price': 1000}] }
         
         # Ensure we have the correct inventory before the order
-        self.assertEqual(InventoryManagementService.get_available_inventory(self, '04d5d8be-470b-45e8-b3fe-88b1c412535a'), 52)
+        self.assertEqual(InventoryManagementService().get_available_inventory('04d5d8be-470b-45e8-b3fe-88b1c412535a'), 52)
         
         response = self.client.post(url, data, format='json')
         
@@ -77,5 +77,5 @@ class OrderTests(APITestSetup):
         self.assertEqual(response.data.get('status'), 'completed')
 
         # Ensure we have the correct inventory after the order
-        self.assertEqual(InventoryManagementService.get_available_inventory(self, '04d5d8be-470b-45e8-b3fe-88b1c412535a'), 49)
+        self.assertEqual(InventoryManagementService().get_available_inventory('04d5d8be-470b-45e8-b3fe-88b1c412535a'), 49)
     
