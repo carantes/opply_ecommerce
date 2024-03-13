@@ -8,7 +8,8 @@ class InventoryManagementService():
         if product is None:
             raise serializers.ValidationError('Product not found.')
         
-        if product.inventory.reserve(quantity) == False:
+        # Ship the product from the inventory
+        if product.inventory.ship(quantity) == False:
             raise serializers.ValidationError('Requested quantity is not available.')
         
         product.save()

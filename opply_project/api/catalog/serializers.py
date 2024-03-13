@@ -17,23 +17,6 @@ class ProductSerializer(serializers.HyperlinkedModelSerializer):
         fields = ['id', 'name', 'description', 'price', 'quantity', 'url', 'public_id']
         read_only_fields = ['public_id']
 
-
-# Inventory Reserve serializer
-class InventoryReserveSerializer(serializers.ModelSerializer):
-    quantity = serializers.IntegerField(write_only=True, required=True, min_value=1)
-    
-    class Meta:
-        model = Inventory
-        fields = ['quantity', 'available', 'reserved']
-        read_only_fields = ['available', 'reserved']      
-  
-    def update(self, inventory, validated_data):
-        if not inventory.reserve(validated_data['quantity']):
-            raise serializers.ValidationError('Requested quantity is not available.')
-
-        inventory.refresh_from_db()
-        return inventory
-        
     
 # Inventory Ship serializer
 class InventoryShipSerializer(serializers.Serializer):
@@ -41,7 +24,7 @@ class InventoryShipSerializer(serializers.Serializer):
     
     class Meta:
         model = Inventory
-        fields = ['product', 'available', 'reserved', 'shipped']
+        fields = ['product', 'available', 'shipped']
     
     def update(self, inventory, validated_data):
         if not inventory.ship(validated_data['quantity']):

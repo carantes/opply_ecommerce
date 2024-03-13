@@ -16,34 +16,17 @@ class Product(UUIDBaseModel):
 class Inventory(BaseModel):
     Product = models.OneToOneField(Product, on_delete=models.CASCADE, related_name='inventory')
     available = models.IntegerField()
-    reserved = models.IntegerField(default=0)
     shipped = models.IntegerField(default=0)
-
-    # Reserves the product if it is in stock
-    def reserve(self, quantity):
+ 
+    # Ships the product from the inventory
+    def ship(self, quantity):
         if self.available >= quantity:
             self.available -= quantity
-            self.reserved += quantity
-            self.save()
-            return True
-        return False
-    
-    # Ships the product if it is reserved or in stock
-    def ship(self, quantity):
-        if self.reserved >= quantity:
-            self.reserved -= quantity
             self.shipped += quantity
-            self.save()
-            return True
-        elif (self.reserved + self.available) >= quantity:
-            # Fall back to using available stock
-            self.available -= quantity-self.reserved
-            self.reserved = 0
-            self.shipped += quantity            
             self.save()
             return True
         
         return False
 
     def __str__(self):
-        return f'Inventory for {self.Product.name}, {self.available} available, {self.reserved} reserved, {self.shipped} shipped'
+        return f'Inventory for {self.Product.name}, {self.available} available, {self.shipped} shipped'

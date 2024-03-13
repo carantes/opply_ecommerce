@@ -5,7 +5,6 @@
     "fields": {
       "Product": 1,
       "available": 52,
-      "reserved": 28,
       "shipped": 20,
       "created_at": "2020-01-01T00:00:00Z",
       "updated_at": "2020-01-01T00:00:00Z"
@@ -17,7 +16,6 @@
     "fields": {
       "Product": 2,
       "available": 52,
-      "reserved": 28,
       "shipped": 20,
       "created_at": "2020-01-01T00:00:00Z",
       "updated_at": "2020-01-01T00:00:00Z"
@@ -29,7 +27,6 @@
     "fields": {
       "Product": 3,
       "available": 52,
-      "reserved": 28,
       "shipped": 20,
       "created_at": "2020-01-01T00:00:00Z",
       "updated_at": "2020-01-01T00:00:00Z"
@@ -41,7 +38,6 @@
     "fields": {
       "Product": 4,
       "available": 52,
-      "reserved": 28,
       "shipped": 20,
       "created_at": "2020-01-01T00:00:00Z",
       "updated_at": "2020-01-01T00:00:00Z"
@@ -53,7 +49,6 @@
     "fields": {
       "Product": 5,
       "available": 95,
-      "reserved": 5,
       "shipped": 0,
       "created_at": "2020-01-01T00:00:00Z",
       "updated_at": "2020-01-01T00:00:00Z"
@@ -65,7 +60,6 @@
     "fields": {
       "Product": 6,
       "available": 52,
-      "reserved": 28,
       "shipped": 20,
       "created_at": "2020-01-01T00:00:00Z",
       "updated_at": "2020-01-01T00:00:00Z"
@@ -77,7 +71,6 @@
     "fields": {
       "Product": 7,
       "available": 0,
-      "reserved": 0,
       "shipped": 100,
       "created_at": "2020-01-01T00:00:00Z",
       "updated_at": "2020-01-01T00:00:00Z"
@@ -89,7 +82,6 @@
     "fields": {
       "Product": 8,
       "available": 52,
-      "reserved": 28,
       "shipped": 20,
       "created_at": "2020-01-01T00:00:00Z",
       "updated_at": "2020-01-01T00:00:00Z"
@@ -101,7 +93,6 @@
     "fields": {
       "Product": 9,
       "available": 52,
-      "reserved": 28,
       "shipped": 20,
       "created_at": "2020-01-01T00:00:00Z",
       "updated_at": "2020-01-01T00:00:00Z"
@@ -113,7 +104,6 @@
     "fields": {
       "Product": 10,
       "available": 52,
-      "reserved": 28,
       "shipped": 20,
       "created_at": "2020-01-01T00:00:00Z",
       "updated_at": "2020-01-01T00:00:00Z"
@@ -125,7 +115,6 @@
     "fields": {
       "Product": 11,
       "available": 52,
-      "reserved": 28,
       "shipped": 20,
       "created_at": "2020-01-01T00:00:00Z",
       "updated_at": "2020-01-01T00:00:00Z"
@@ -137,7 +126,6 @@
     "fields": {
       "Product": 12,
       "available": 52,
-      "reserved": 28,
       "shipped": 20,
       "created_at": "2020-01-01T00:00:00Z",
       "updated_at": "2020-01-01T00:00:00Z"
@@ -149,7 +137,6 @@
     "fields": {
       "Product": 13,
       "available": 52,
-      "reserved": 28,
       "shipped": 20,
       "created_at": "2020-01-01T00:00:00Z",
       "updated_at": "2020-01-01T00:00:00Z"
@@ -161,7 +148,6 @@
     "fields": {
       "Product": 14,
       "available": 52,
-      "reserved": 28,
       "shipped": 20,
       "created_at": "2020-01-01T00:00:00Z",
       "updated_at": "2020-01-01T00:00:00Z"
@@ -173,7 +159,6 @@
     "fields": {
       "Product": 15,
       "available": 52,
-      "reserved": 28,
       "shipped": 20,
       "created_at": "2020-01-01T00:00:00Z",
       "updated_at": "2020-01-01T00:00:00Z"
@@ -185,7 +170,6 @@
     "fields": {
       "Product": 16,
       "available": 52,
-      "reserved": 28,
       "shipped": 20,
       "created_at": "2020-01-01T00:00:00Z",
       "updated_at": "2020-01-01T00:00:00Z"
@@ -197,7 +181,6 @@
     "fields": {
       "Product": 17,
       "available": 52,
-      "reserved": 28,
       "shipped": 20,
       "created_at": "2020-01-01T00:00:00Z",
       "updated_at": "2020-01-01T00:00:00Z"
@@ -209,7 +192,6 @@
     "fields": {
       "Product": 18,
       "available": 52,
-      "reserved": 28,
       "shipped": 20,
       "created_at": "2020-01-01T00:00:00Z",
       "updated_at": "2020-01-01T00:00:00Z"
@@ -221,7 +203,6 @@
     "fields": {
       "Product": 19,
       "available": 52,
-      "reserved": 28,
       "shipped": 20,
       "created_at": "2020-01-01T00:00:00Z",
       "updated_at": "2020-01-01T00:00:00Z"
@@ -233,7 +214,6 @@
     "fields": {
       "Product": 20,
       "available": 52,
-      "reserved": 28,
       "shipped": 20,
       "created_at": "2020-01-01T00:00:00Z",
       "updated_at": "2020-01-01T00:00:00Z"
