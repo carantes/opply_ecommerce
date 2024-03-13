@@ -1,0 +1,50 @@
+version: '3'
+
+services:
+  db:
+    restart: unless-stopped
+    container_name: opplycommerce-db
+    image: postgres:16.2
+    environment:
+      - POSTGRES_USER=${POSTGRES_USER}
+      - POSTGRES_NAME=${POSTGRES_NAME}
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+    ports:
+      - "${POSTGRES_LOCAL_PORT}:${POSTGRES_PORT}"
+    healthcheck:
+      test:
+        [
+          "CMD-SHELL",
+          "pg_isready -U ${POSTGRES_USER} -d ${POSTGRES_NAME}"
+        ]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+    # volumes:
+    #   - db-data:/var/lib/postgresql/data
+
+  adminer:
+    restart: unless-stopped
+    container_name: opplycommerce-adminer
+    image: adminer
+    ports:
+      - "${DB_ADMINER_PORT}:${DB_ADMINER_PORT}"
+
+  api:
+    restart: on-failure
+    container_name: opplycommerce-api
+    build:
+      context: .
+      dockerfile: Dockerfile
+    env_file:
+      - .env
+      - .env.docker # docker specific environment variables 
+    entrypoint: /entrypoint.sh
+    command: bash -c "python manage.py runserver 0.0.0.0:${DJANGO_PORT}"
+    ports:
+      - "${DJANGO_PORT}:${DJANGO_PORT}"
+    volumes:
+      - .:/opply_project
+    depends_on:
+      db:
+        condition: service_healthy

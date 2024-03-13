@@ -1,0 +1,26 @@
+[
+  {
+    "model": "orders.order",
+    "pk": 1,
+    "fields": {
+      "created_at": "2024-03-13T14:01:06.359Z",
+      "updated_at": "2024-03-13T14:04:45.324Z",
+      "public_id": "62687a7a-2459-4170-b67b-63b76d366dfa",
+      "customer": "9feeac87-9058-4c97-a347-ee0b356ee8a0",
+      "total": "2000.00",
+      "status": "completed"
+    }
+  },
+  {
+    "model": "orders.order",
+    "pk": 2,
+    "fields": {
+      "created_at": "2024-03-13T14:01:06.359Z",
+      "updated_at": "2024-03-13T14:04:45.324Z",
+      "public_id": "62687a7a-2459-4170-b67b-63b76d366dfb",
+      "customer": "9feeac87-9058-4c97-a347-ee0b356ee8a0",
+      "total": "5400.00",
+      "status": "completed"
+    }
+  }
+]

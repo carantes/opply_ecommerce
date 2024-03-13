@@ -1,0 +1,242 @@
+[
+  {
+    "model": "catalog.inventory",
+    "pk": 1,
+    "fields": {
+      "Product": 1,
+      "available": 52,
+      "reserved": 28,
+      "shipped": 20,
+      "created_at": "2020-01-01T00:00:00Z",
+      "updated_at": "2020-01-01T00:00:00Z"
+    }
+  },
+  {
+    "model": "catalog.inventory",
+    "pk": 2,
+    "fields": {
+      "Product": 2,
+      "available": 52,
+      "reserved": 28,
+      "shipped": 20,
+      "created_at": "2020-01-01T00:00:00Z",
+      "updated_at": "2020-01-01T00:00:00Z"
+    }
+  },
+  {
+    "model": "catalog.inventory",
+    "pk": 3,
+    "fields": {
+      "Product": 3,
+      "available": 52,
+      "reserved": 28,
+      "shipped": 20,
+      "created_at": "2020-01-01T00:00:00Z",
+      "updated_at": "2020-01-01T00:00:00Z"
+    }
+  },
+  {
+    "model": "catalog.inventory",
+    "pk": 4,
+    "fields": {
+      "Product": 4,
+      "available": 52,
+      "reserved": 28,
+      "shipped": 20,
+      "created_at": "2020-01-01T00:00:00Z",
+      "updated_at": "2020-01-01T00:00:00Z"
+    }
+  },
+  {
+    "model": "catalog.inventory",
+    "pk": 5,
+    "fields": {
+      "Product": 5,
+      "available": 95,
+      "reserved": 5,
+      "shipped": 0,
+      "created_at": "2020-01-01T00:00:00Z",
+      "updated_at": "2020-01-01T00:00:00Z"
+    }
+  },
+  {
+    "model": "catalog.inventory",
+    "pk": 6,
+    "fields": {
+      "Product": 6,
+      "available": 52,
+      "reserved": 28,
+      "shipped": 20,
+      "created_at": "2020-01-01T00:00:00Z",
+      "updated_at": "2020-01-01T00:00:00Z"
+    }
+  },
+  {
+    "model": "catalog.inventory",
+    "pk": 7,
+    "fields": {
+      "Product": 7,
+      "available": 0,
+      "reserved": 0,
+      "shipped": 100,
+      "created_at": "2020-01-01T00:00:00Z",
+      "updated_at": "2020-01-01T00:00:00Z"
+    }
+  },
+  {
+    "model": "catalog.inventory",
+    "pk": 8,
+    "fields": {
+      "Product": 8,
+      "available": 52,
+      "reserved": 28,
+      "shipped": 20,
+      "created_at": "2020-01-01T00:00:00Z",
+      "updated_at": "2020-01-01T00:00:00Z"
+    }
+  },
+  {
+    "model": "catalog.inventory",
+    "pk": 9,
+    "fields": {
+      "Product": 9,
+      "available": 52,
+      "reserved": 28,
+      "shipped": 20,
+      "created_at": "2020-01-01T00:00:00Z",
+      "updated_at": "2020-01-01T00:00:00Z"
+    }
+  },
+  {
+    "model": "catalog.inventory",
+    "pk": 10,
+    "fields": {
+      "Product": 10,
+      "available": 52,
+      "reserved": 28,
+      "shipped": 20,
+      "created_at": "2020-01-01T00:00:00Z",
+      "updated_at": "2020-01-01T00:00:00Z"
+    }
+  },
+  {
+    "model": "catalog.inventory",
+    "pk": 11,
+    "fields": {
+      "Product": 11,
+      "available": 52,
+      "reserved": 28,
+      "shipped": 20,
+      "created_at": "2020-01-01T00:00:00Z",
+      "updated_at": "2020-01-01T00:00:00Z"
+    }
+  },
+  {
+    "model": "catalog.inventory",
+    "pk": 12,
+    "fields": {
+      "Product": 12,
+      "available": 52,
+      "reserved": 28,
+      "shipped": 20,
+      "created_at": "2020-01-01T00:00:00Z",
+      "updated_at": "2020-01-01T00:00:00Z"
+    }
+  },
+  {
+    "model": "catalog.inventory",
+    "pk": 13,
+    "fields": {
+      "Product": 13,
+      "available": 52,
+      "reserved": 28,
+      "shipped": 20,
+      "created_at": "2020-01-01T00:00:00Z",
+      "updated_at": "2020-01-01T00:00:00Z"
+    }
+  },
+  {
+    "model": "catalog.inventory",
+    "pk": 14,
+    "fields": {
+      "Product": 14,
+      "available": 52,
+      "reserved": 28,
+      "shipped": 20,
+      "created_at": "2020-01-01T00:00:00Z",
+      "updated_at": "2020-01-01T00:00:00Z"
+    }
+  },
+  {
+    "model": "catalog.inventory",
+    "pk": 15,
+    "fields": {
+      "Product": 15,
+      "available": 52,
+      "reserved": 28,
+      "shipped": 20,
+      "created_at": "2020-01-01T00:00:00Z",
+      "updated_at": "2020-01-01T00:00:00Z"
+    }
+  },
+  {
+    "model": "catalog.inventory",
+    "pk": 16,
+    "fields": {
+      "Product": 16,
+      "available": 52,
+      "reserved": 28,
+      "shipped": 20,
+      "created_at": "2020-01-01T00:00:00Z",
+      "updated_at": "2020-01-01T00:00:00Z"
+    }
+  },
+  {
+    "model": "catalog.inventory",
+    "pk": 17,
+    "fields": {
+      "Product": 17,
+      "available": 52,
+      "reserved": 28,
+      "shipped": 20,
+      "created_at": "2020-01-01T00:00:00Z",
+      "updated_at": "2020-01-01T00:00:00Z"
+    }
+  },
+  {
+    "model": "catalog.inventory",
+    "pk": 18,
+    "fields": {
+      "Product": 18,
+      "available": 52,
+      "reserved": 28,
+      "shipped": 20,
+      "created_at": "2020-01-01T00:00:00Z",
+      "updated_at": "2020-01-01T00:00:00Z"
+    }
+  },
+  {
+    "model": "catalog.inventory",
+    "pk": 19,
+    "fields": {
+      "Product": 19,
+      "available": 52,
+      "reserved": 28,
+      "shipped": 20,
+      "created_at": "2020-01-01T00:00:00Z",
+      "updated_at": "2020-01-01T00:00:00Z"
+    }
+  },
+  {
+    "model": "catalog.inventory",
+    "pk": 20,
+    "fields": {
+      "Product": 20,
+      "available": 52,
+      "reserved": 28,
+      "shipped": 20,
+      "created_at": "2020-01-01T00:00:00Z",
+      "updated_at": "2020-01-01T00:00:00Z"
+    }
+  }
+]

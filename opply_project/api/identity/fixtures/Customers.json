@@ -1,0 +1,16 @@
+[
+  {
+    "model": "identity.customer",
+    "pk": 1,
+    "fields": {
+      "public_id": "9feeac87-9058-4c97-a347-ee0b356ee8a0"
+    }
+  },
+  {
+    "model": "identity.customer",
+    "pk": 2,
+    "fields": {
+      "public_id": "9feeac87-9058-4c97-a347-ee0b356ee8a1"
+    }
+  }
+]
