@@ -25,6 +25,55 @@ This is an assessment to build the backend of a mobile application to Opply cust
 
 ![alt text](assets/high-level-design-opply.png)
 
+This Django project will be composed by three distinct apps (modules):
+
+1. User Identity: Register, Authenticate, Generate tokens and maintain users (customers)
+2. Product Catalog: Maintain de catalog of products and up-to-date inventory levels.
+3. Order Management: Create and maintain orders and update inventory on the product catalog.
+
+### Reduce Latency loading a large dataset of products
+
+The Product Catalog will be the most accessed APIs on the system, both to read the list of product and to maintain the inventory. We need to provide a few mechanisms to make sure users will have a good experience loading products and to reduce the concurrency between reads (product lists) and writes (update inventory):
+
+- Pagination
+- Filters
+- Cache
+- Primary and Secondary databases (Writes/Reads)
+
+### Orders & Inventory Management
+
+The biggest challenge on every e-commerce app is on the inventory management. We want to reduce the risk of the following issues happen:
+
+- Different users odering the same last product and receiving a late feedback informing that the order was cancelled or will be partially satisfied
+
+- Users unable to finish an order because the product is not available anymore
+
+The best way to make this happen is to implement a Shopping Cart where the availability will be validated every time a new product is added to the cart.
+
+1. User see the list of products from a snapshot of the current inventory (in memory cached on redis).
+
+2. User try to add one specific product item with quantity to the shopping cart.
+
+3. The system check the availability and reserve the specific number of items (in memory) if it is available. Out-of-stock products are automatically removed from the list.
+
+4. User add a few other items to the cart and confirm the order. On this moment all the product items are validated and removed definitely from the inventory on the database.
+
+5. Even with the fast-feedback to the user in the shopping cart there are still a small risk of one or more product items to be out-of-stock on the moment of the order creation
+
+6. Two possibles strategies can be used on order creation: "All or nothing" or "Partially satisfied". On this exercise I am assuming that all order-items needs to be available in the stock on the moment of the order creation, otherwise the order will not be created.
+
+7. Shopping Carts will have a TTL on Redis. So abandoned carts are automatically cleaned after X minutes/hours/days.
+
+> Due to the time restrictions, I will not implement the in-memory product list snapshot neither the shopping cart.
+
+### Reduce Latency and scalability on order creation
+
+As the system scales we may have multiple users trying to generate orders related to the same product. This may cause some latency due to multiple transactions locking the database to update the same inventory. Possible strategies to solve this issue:
+
+1. Remove inventory update on the database from order creation: Keep the in-memory Redis/Memcache as the source of truth to inventory levels. Send order_created events to a queue (Kafka, SNS, etc), and
+   create a new Order Fulfillment consumer to read these events from the queue, persist the inventory on the database to satisfy the order and change the order status
+2. Segregate database reads/writes using primary and secondary dbs
+
 ## Database Schema (Logical)
 
 ![alt text](assets/database-logical-schema-opply.png)
