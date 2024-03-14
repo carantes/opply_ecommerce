@@ -26,3 +26,6 @@ test:
 
 test-watch:
 	ptw --config ./opply_project/pytest.ini
+
+check-deploy:
+	$(SOURCE_VENV) && $(PYTHON) ./opply_project/manage.py check --deploy

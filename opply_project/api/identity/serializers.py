@@ -11,11 +11,16 @@ class CustomTokenObtainPairSerializer(TokenObtainPairSerializer):
     def get_token(cls, user):
         token = super().get_token(user)
         
+        # Get public_id
+        public_id = Customer.objects.get(username=user).public_id
+        
         # Add custom claims
         token['email'] = user.email
+        token['public_id'] = str(public_id)
         # ...
         
         return token
+    
     
 # Register user serializer
 class RegisterUserSerializer(serializers.ModelSerializer):

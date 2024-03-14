@@ -9,8 +9,8 @@ class OrderStatusEnum(models.TextChoices):
 # UUID field is used to identify the customer who placed the order
 # Loosely coupled with the identity service 
 class Order(UUIDBaseModel):
-    customer = models.UUIDField()
-    total = models.DecimalField(max_digits=10, decimal_places=2, default=0.00)
+    customer = models.UUIDField(editable=False, blank=False, null=False)
+    total = models.DecimalField(max_digits=10, decimal_places=2)
     status = models.CharField(max_length=50, default='new', choices=OrderStatusEnum.choices)
     
     def __str__(self):

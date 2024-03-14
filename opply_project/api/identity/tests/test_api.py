@@ -27,7 +27,7 @@ class RegisterUserTests(APITestCase):
 
 # User Authentication
 class UserAuthenticationTests(APITestCase):
-    fixtures = ['Users.json']
+    fixtures = ['Users.json', 'Customers.json']
 
     def test_user_login(self):
         """

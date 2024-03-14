@@ -19,7 +19,8 @@
       "price": 200.0,
       "description": "Electric guitar",
       "created_at": "2020-01-01T00:00:00Z",
-      "updated_at": "2020-01-01T00:00:00Z"
+      "updated_at": "2020-01-01T00:00:00Z",
+      "public_id": "d940a7cf-ff47-4f71-b72c-770cb5656f7f"
     }
   },
   {
@@ -30,7 +31,8 @@
       "price": 300.0,
       "description": "Acoustic guitar",
       "created_at": "2020-01-01T00:00:00Z",
-      "updated_at": "2020-01-01T00:00:00Z"
+      "updated_at": "2020-01-01T00:00:00Z",
+      "public_id": "fe36af8e-0a14-4413-aa36-cb3d1a02733a"
     }
   },
   {
