@@ -91,7 +91,7 @@ Before run this project you need to have the following dependencies installed
 
 ## Quick Start
 
-To start this project you just need to run the following shortcut. It will start all the resources on docker, load the initial seed on the database, build and run the api.
+To start this project you just need to duplicate the .env file and run the app using the shortcut. It will start all the resources on docker, load the initial seed on the database, build and run the api.
 
 Create the .env file based on sample
 
