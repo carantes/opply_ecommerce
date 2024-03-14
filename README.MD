@@ -93,6 +93,14 @@ Before run this project you need to have the following dependencies installed
 
 To start this project you just need to run the following shortcut. It will start all the resources on docker, load the initial seed on the database, build and run the api.
 
+Create the .env file based on sample
+
+```
+cp ./opply_project/.env.sample ./opply_project/.env
+```
+
+Start the app
+
 ```
 make run-docker
 ```
@@ -128,6 +136,22 @@ http://localhost:8000/api/
 | /api/orders/orders/      | POST   | Place an order with order items                     |
 | /api/orders/orders/      | GET    | Get a list of all orders for the authenticated user |
 | /api/orders/orders/{id}  | GET    | Get details of a specific order                     |
+
+## Project Structure
+
+| Directory/File       | Description                                                                                              |
+| -------------------- | -------------------------------------------------------------------------------------------------------- |
+| `opply_project/`     | Root directory of the Django project                                                                     |
+| `├── config/`        | Project-specific Django settings                                                                         |
+| `├── api/`           |                                                                                                          |
+| `├──── identity/`    | Identity app (user and customer models, views, etc.)                                                     |
+| `├──── catalog/`     | Product Catalog app (product models, views, etc.)                                                        |
+| `├──── orders/`      | Order Management app (order models, views, etc.)                                                         |
+| `├──── common/`      | Common methods and utilities used by all other apps                                                      |
+| `├── manage.py`      | Django's command-line utility for administrative tasks                                                   |
+| `requirements.txt`   | Contains the Python dependencies for this project                                                        |
+| `Dockerfile`         | Defines how to build the Docker image for this Django application                                        |
+| `docker-compose.yml` | Defines the services that make up the application so they can be run together in an isolated environment |
 
 ## Development Workflow
 
