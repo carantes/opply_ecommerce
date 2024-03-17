@@ -44,13 +44,13 @@ The Product Catalog will be the most accessed APIs on the system, both to read t
 
 The biggest challenge on every e-commerce app is on the inventory management. We want to reduce the risk of the following issues happen:
 
-- Different users odering the same last product and receiving a late feedback informing that the order was cancelled or will be partially satisfied
+- Different users ordering the same last product and receiving a late feedback informing that the order was cancelled or will be partially satisfied
 
 - Users unable to finish an order because the product is not available anymore
 
 The best way to make this happen is to implement a Shopping Cart where the availability will be validated every time a new product is added to the cart.
 
-1. User see the list of products from a snapshot of the current inventory (in memory cached on redis).
+1. User see the list of products from a snapshot of the current inventory (in memory cached on Redis).
 
 2. User try to add one specific product item with quantity to the shopping cart.
 
@@ -58,21 +58,21 @@ The best way to make this happen is to implement a Shopping Cart where the avail
 
 4. User add a few other items to the cart and confirm the order. On this moment all the product items are validated and removed definitely from the inventory on the database.
 
-5. Even with the fast-feedback to the user in the shopping cart there are still a small risk of one or more product items to be out-of-stock on the moment of the order creation
+5. Even with the fast-feedback to the user adding items to the shopping cart there are still a small risk of one or more product items to be out-of-stock on the moment of the order creation.
 
-6. Two possibles strategies can be used on order creation: "All or nothing" or "Partially satisfied". On this exercise I am assuming that all order-items needs to be available in the stock on the moment of the order creation, otherwise the order will not be created.
+6. There are two possibles strategies on order creation: Validate inventory synchronously (all or nothing) or asynchronously (fulfill the order after the creation).
 
-7. Shopping Carts will have a TTL on Redis. So abandoned carts are automatically cleaned after X minutes/hours/days.
+7. Shopping Carts can have a TTL on Redis. So abandoned carts can be automatically cleaned up and items can be returned to the stock.
 
-> Due to the time restrictions, I will not implement the in-memory product list snapshot neither the shopping cart.
+> Due to the time restrictions, I will not implement the in-memory snapshot of the product inventory neither the shopping cart. I am assuming all order-items needs to be available in the stock on the moment of the order creation, otherwise the user will receive an 4xx error.
 
 ### Reduce Latency and scalability on order creation
 
-As the system scales we may have multiple users trying to generate orders related to the same product. This may cause some latency due to multiple transactions locking the database to update the same inventory. Possible strategies to solve this issue:
+As the system scales we may have multiple users trying to generate orders related to the same product. This may cause some latency due to multiple transactions locking the database to update the same database row on product inventory. A few possible strategies to solve this issue are:
 
 1. Remove inventory update on the database from order creation: Keep the in-memory Redis/Memcache as the source of truth to inventory levels. Send order_created events to a queue (Kafka, SNS, etc), and
    create a new Order Fulfillment consumer to read these events from the queue, persist the inventory on the database to satisfy the order and change the order status
-2. Segregate database reads/writes using primary and secondary dbs
+2. Segregate database reads/writes using primary and secondary DBs
 
 ## Database Schema (Logical)
 
@@ -105,7 +105,7 @@ Start the app
 make run-docker
 ```
 
-Once the app is running you can authenticate in the Djando Admin and navigate to the apis using the DRF entrypoint route
+Once the app is running you can authenticate in the Django Admin and navigate to the apis using the DRF entrypoint route
 
 1. Authenticate in the Django admin (user: opply / password: 123456)
 
@@ -175,7 +175,7 @@ During development, you can modify the Django code, and the **changes will be au
 
 # Deployment instructions
 
-### Django [deployment checklst](https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/)
+### Django [deployment checklist](https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/)
 
 - Run the check deploy script
 - Provide a production secret key
@@ -192,7 +192,7 @@ During development, you can modify the Django code, and the **changes will be au
 
 ### Deployment to **AWS**
 
-1. Straighforward option: Deploy to Elastic Beanstalk following the [step-by-step provided by AWS](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/create-deploy-python-django.html)
+1. Straightforward option: Deploy to Elastic Beanstalk following the [step-by-step provided by AWS](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/create-deploy-python-django.html)
 
 2. Cheaper and resilient option (preferable): EC2 + RDS (Aurora) + Nginx + Memcache
 
