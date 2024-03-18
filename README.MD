@@ -212,11 +212,20 @@ During development, you can modify the Django code, and the **changes will be au
 
 ## Next steps
 
+1. Database
+
 - Primary / Secondary Postgres database (split read and writes requests)
-- Cache (products)
-  - Cache aside strategy (read from cache and fallback to db)
-  - Updates to product inventory and orders re-writes the cache
-- Retry with idempotency
-  - Each request id is stored in memory
-  - Duplicated requests return from cache
+- Independent schemas per project on db config
+
+2. Product Catalog
+
 - Product Categories with filters
+- Cache aside strategy to Product Catalog (read from cache and fallback to db)
+- In-memory updates to inventory and orders re-writes the cache
+
+3. Order Management
+
+- Implement resiliency mechanisms to order creation (retry and with idempotency)
+- Async order fulfillment using events
+
+...
