@@ -78,6 +78,8 @@ As the system scales we may have multiple users trying to generate orders relate
 
 ![alt text](assets/database-logical-schema-opply.png)
 
+I am considering each module as independent database schemas. So FKs will be created only between correlated tables inside of the same schema (Ex.: Product x Inventory and Order x Order Items). References to Customer ID or Product ID across schemas will use weak relationships with public identifiers (UUID) and any required validation will be implemented in the application layer.
+
 # How to run this project?
 
 ## Requirements
